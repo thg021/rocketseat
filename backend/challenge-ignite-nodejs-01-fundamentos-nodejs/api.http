@@ -1,0 +1,40 @@
+### GET list all tasks
+GET  http://localhost:8888/tasks
+Content-Type: application/json
+Accept: application/json
+
+### GET search tasks
+GET  http://localhost:8888/tasks?search=Exemplo&alterado
+Content-Type: application/json
+Accept: application/json
+
+
+### POST create task
+POST http://localhost:8888/tasks
+Content-Type: application/json
+Accept: application/json
+
+{
+    "title": "exemplo", 
+    "description": "description 2"
+}
+
+### PUT update task
+PUT http://localhost:8888/tasks/e52955f3-2b0f-480e-88d8-eedb83e0f2cc
+Content-Type: application/json
+Accept: application/json
+
+{
+    "title": "Exemplo alterado", 
+    "description": "Feito"
+}
+
+### DELETE list tasks
+DELETE  http://localhost:8888/tasks/9bb49564-f2d0-44ad-93de-da583cb745d9
+Content-Type: application/json
+Accept: application/json
+
+### PATCH complete 
+PATCH http://localhost:8888/tasks/277aa9e4-f56f-41a6-a63c-630cabfd6e53/complete
+Content-Type: application/json
+Accept: application/json
