@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-family: 'Inter', sans-serif;
+
+  --product-purple-light: #a881e6;
+  --product-purple: #7450ac;
+  --product-purple-dark: #523480;
+
+  --base-gray-100: #fbf9fe;
+  --base-gray-200: #afabb6;
+  --base-gray-300: #252529;
+  --base-gray-400: #17171a;
+  --base-gray-500: #111112;
+  --base-gray-600: #0c0c0d;
+
+  --sucess-light: #4e995e;
+  --sucess: #2f723d;
+
+  --apoio-pink: #db5bbf;
+  --apoio-pink-dark: #251622;
+  --apoio-orange: #e07b67;
+  --apoio-orange-dark: #261a17;
+  --apoio-yellow: #bb9f3a;
+  --apoio-yellow-dark: #211e12;
+  --apoio-green: #8cad51;
+  --apoio-green-dark: #1c2015;
+  --apoio-blue: #7b94cb;
+  --apoio-dark-blue: #1a1d23;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+}
+
+body {
+  background-color: var(--base-gray-600);
+  color: var(--base-gray-100);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+/* CATEGORIES COLORS */
+
+.orange {
+  background-color: var(--apoio-orange-dark);
+  color: var(--apoio-orange);
+}
+
+.yellow {
+  background-color: var(--apoio-yellow-dark);
+  color: var(--apoio-yellow);
+}
+
+.green {
+  background-color: var(--apoio-green-dark);
+  color: var(--apoio-green);
+}
+
+.blue {
+  background-color: var(--apoio-dark-blue);
+  color: var(--apoio-blue);
+}
+
+.pink {
+  background-color: var(--apoio-pink-dark);
+  color: var(--apoio-pink);
+}
+
+.app {
+  width: 28rem;
+
+}
+
+.select {
+ 
+  padding: 6rem
+}
+
+#category-select label {
+  font-size: 0.75rem;
+  letter-spacing: 0.0223rem;
+}
+
+#select-button {
+  margin-top: .5rem;
+  display: flex;
+  padding: 0.75rem;
+  gap: .5rem;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: .375rem;
+  border: 1px solid var(--base-gray-300);
+  background-color: var(--base-gray-400);
+}
+
+#selected-value {
+  color: var(--base-gray-200);
+  font-size: 0.875rem;
+  letter-spacing: 0.02625rem;
+}
+
+#chevrons svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+#chevrons {
+  color: var(--base-gray-200);
+  display: flex;
+}
+
+#chevrons [data-lucide="chevron-up"]{
+  display: none;
+}
+
+#options-view-button:focus + #select-button, 
+#options-view-button:checked + #selected-button {
+  outline: 1px solid var(--product-purple-light);
+}
+
+#category-select:has(#options-view-button:checked) label, 
+#options-view-button:checked + #select-button #chevrons {
+  color: var(--product-purple-light);
+}
+
+
+#options-view-button:checked + #select-button #chevrons [data-lucide="chevron-down"] {
+  display: none;
+}
+
+#options-view-button:checked + #select-button #chevrons [data-lucide="chevron-up"] {
+  display: block;
+}
+
+#category-select {
+  position: relative
+}
+
+#options-view-button {
+  all: unset;
+  position: absolute;
+  inset: 0;
+
+  cursor: pointer;
+  z-index: 3;
+}
+
+#options {
+  margin-top: .25rem;
+
+  border-radius: .375rem;
+  border: 1px solid var(--base-gray-300);
+  background: var(--base-gray-400);
+
+  display: none;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap:.5rem;
+
+  padding: .75rem;
+
+  width: 100%;
+  border-bottom: 1px solid var(--base-gray-300);
+
+  position: relative;
+}
+
+.option label {
+  color: var(--base-gray-100)
+}
+
+.option svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.option svg:last-child {
+  margin-left: auto;
+  color: var(--product-purple-light)
+}
+
+.option:has(input:checked), 
+.option:hover {
+  background-color: var(--base-gray-300);
+  border-bottom: 1px solid var(--base-gray-300)
+}
+
+.option:has(input:focus) {
+  outline: 1px solid var(--product-purple-light)
+}
+
+.option [data-lucide="check"] {
+  display: none;
+}
+
+.option:has(input:checked) [data-lucide="check"] {
+  display: block;
+}
+
+.option input[type="radio"] {
+  all: unset;
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+
+}
+
+#category-select:has(#options-view-button:checked) + #options {
+  display: block;
+}
+
+.select:has(.option input:checked) #category-select label {
+  color: var(--product-purple-light)
+}
+
+.select:has(.option input:checked) #category-select {
+  color: var(--base-gray-100)
+}
